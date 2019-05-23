@@ -1,0 +1,15 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Igloo.Authentication/.vs
+/Igloo.Authentication/Clients/Xamarin/XamarinClient/obj
+/Igloo.Authentication/Demos/Xamarin/XamarinFormsDemo/bin/Debug/netstandard2.0
+/Igloo.Authentication/Demos/Xamarin/XamarinFormsDemo/obj
+/Igloo.Authentication/Demos/Xamarin/XamarinFormsDemo.Droid/bin/Release
+/Igloo.Authentication/Demos/Xamarin/XamarinFormsDemo.Droid/obj
+/Igloo.Authentication/Igloo.IdentityServer/bin
+/Igloo.Authentication/Igloo.IdentityServer/obj
+*.user
+/Igloo.Authentication/TestMobileService/bin/Release/netcoreapp2.2
+/Igloo.Authentication/TestMobileService/obj

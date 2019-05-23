@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Igloo.IdentityServer", "Igloo.IdentityServer\Igloo.IdentityServer.csproj", "{75338703-6F3F-401B-A2B1-0C1D99DBBCEE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{A5DFA096-5588-4171-B401-2D5AA5473221}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Xamarin", "Xamarin", "{40604974-D73D-4BBD-9F98-52880B15BF6E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestMobileService", "TestMobileService\TestMobileService.csproj", "{C50608F7-DB79-4066-8736-0AE117CED40C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demos", "Demos", "{101F1751-3966-4683-A2C0-5799057872CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Xamarin", "Xamarin", "{11D727D4-EA15-47E0-85C3-73792476DB13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinClient", "Clients\Xamarin\XamarinClient\XamarinClient.csproj", "{1F3219EE-15E9-460C-9DD3-EAEA6509AB07}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XamarinFormsDemo", "Demos\Xamarin\XamarinFormsDemo\XamarinFormsDemo.csproj", "{980AFD0C-F701-4592-802C-91392A39C8E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinFormsDemo.Droid", "Demos\Xamarin\XamarinFormsDemo.Droid\XamarinFormsDemo.Droid.csproj", "{D74392C1-7783-4DAE-8CC8-1AD652A650EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75338703-6F3F-401B-A2B1-0C1D99DBBCEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75338703-6F3F-401B-A2B1-0C1D99DBBCEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75338703-6F3F-401B-A2B1-0C1D99DBBCEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75338703-6F3F-401B-A2B1-0C1D99DBBCEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C50608F7-DB79-4066-8736-0AE117CED40C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C50608F7-DB79-4066-8736-0AE117CED40C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C50608F7-DB79-4066-8736-0AE117CED40C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C50608F7-DB79-4066-8736-0AE117CED40C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F3219EE-15E9-460C-9DD3-EAEA6509AB07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F3219EE-15E9-460C-9DD3-EAEA6509AB07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F3219EE-15E9-460C-9DD3-EAEA6509AB07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F3219EE-15E9-460C-9DD3-EAEA6509AB07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{980AFD0C-F701-4592-802C-91392A39C8E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{980AFD0C-F701-4592-802C-91392A39C8E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{980AFD0C-F701-4592-802C-91392A39C8E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{980AFD0C-F701-4592-802C-91392A39C8E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D74392C1-7783-4DAE-8CC8-1AD652A650EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D74392C1-7783-4DAE-8CC8-1AD652A650EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D74392C1-7783-4DAE-8CC8-1AD652A650EF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D74392C1-7783-4DAE-8CC8-1AD652A650EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D74392C1-7783-4DAE-8CC8-1AD652A650EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D74392C1-7783-4DAE-8CC8-1AD652A650EF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{40604974-D73D-4BBD-9F98-52880B15BF6E} = {A5DFA096-5588-4171-B401-2D5AA5473221}
+		{11D727D4-EA15-47E0-85C3-73792476DB13} = {101F1751-3966-4683-A2C0-5799057872CC}
+		{1F3219EE-15E9-460C-9DD3-EAEA6509AB07} = {40604974-D73D-4BBD-9F98-52880B15BF6E}
+		{980AFD0C-F701-4592-802C-91392A39C8E9} = {11D727D4-EA15-47E0-85C3-73792476DB13}
+		{D74392C1-7783-4DAE-8CC8-1AD652A650EF} = {11D727D4-EA15-47E0-85C3-73792476DB13}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3AF19692-7696-4B55-A532-11166B60297C}
+	EndGlobalSection
+EndGlobal

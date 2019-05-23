@@ -13,3 +13,5 @@
 *.user
 /Igloo.Authentication/TestMobileService/bin/Release/netcoreapp2.2
 /Igloo.Authentication/TestMobileService/obj
+/Igloo.Authentication/Clients/Xamarin/XamarinClient/bin/Debug/netstandard2.0
+/Igloo.Authentication/Demos/Xamarin/XamarinFormsDemo.Droid/bin/Debug

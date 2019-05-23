@@ -43,6 +43,9 @@ namespace XamarinFormsDemo
 
             _accountStorageService = new AccountStorageService("xamarin-client-storage");
             _authenticationService = new AuthenticationService(client, _accountStorageService);
+
+            _client = new HttpClient();
+            _client.BaseAddress = new Uri(apiUrl);
         }
 
         private async void Login_Clicked(object sender, EventArgs e)
@@ -80,6 +83,8 @@ namespace XamarinFormsDemo
         private void Logout_Clicked(object sender, EventArgs e)
         {
             _authenticationService.LogoutAsync();
+            _client = new HttpClient();
+            _client.BaseAddress = new Uri(apiUrl);
             OutputText.Text = "Logget out";
         }
     }

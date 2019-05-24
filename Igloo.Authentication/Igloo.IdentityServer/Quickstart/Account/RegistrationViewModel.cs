@@ -18,7 +18,7 @@ namespace IdentityServer4.Quickstart.UI
         [Required, MaxLength(256)]
         public string Name { get; set; }
 
-        [Required, DataType(DataType.Password)]
+        [Required, DataType(DataType.Password), Password]
         public string Password { get; set; }
 
         [DataType(DataType.Password), Compare(nameof(Password))]

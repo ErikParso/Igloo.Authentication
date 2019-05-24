@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using Igloo.IdentityServer.Validation;
 
 namespace Igloo.IdentityServer
 {
@@ -34,7 +35,7 @@ namespace Igloo.IdentityServer
 
             services.AddTransient<IPersistedGrantStore, PersistedGrantStore>();
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
+            services.AddIdentity<ApplicationUser, IdentityRole>(PasswordSettings.SetPasswordOptions)
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace IdentityServer4.Quickstart.UI
 {
@@ -25,7 +26,7 @@ namespace IdentityServer4.Quickstart.UI
 
         [HttpPost]
         [Route("register")]
-        public IActionResult Register(RegistrationViewModel viewModel)
+        public async Task<IActionResult> Register(RegistrationViewModel viewModel)
         {
             if (!ModelState.IsValid)
             {
@@ -39,6 +40,7 @@ namespace IdentityServer4.Quickstart.UI
                 {
                     UserName = viewModel.Name
                 };
+
                 var result = userManager.CreateAsync(user, viewModel.Password).Result;
                 if (!result.Succeeded)
                 {

@@ -45,17 +45,20 @@ namespace IdentityServer4.Quickstart.UI
                     throw new Exception(result.Errors.First().Description);
                 }
 
+                var namePartitions = viewModel.UserName.Split(' ', 2, StringSplitOptions.RemoveEmptyEntries);
+
                 result = userManager.AddClaimsAsync(user, new Claim[]{
                         new Claim(JwtClaimTypes.Name, viewModel.UserName),
-                        new Claim(JwtClaimTypes.GivenName, viewModel.UserName.Split(' ')[0]),
-                        new Claim(JwtClaimTypes.FamilyName, viewModel.UserName.Split(' ')[1]),
-                        new Claim(JwtClaimTypes.Email, viewModel.Email ?? string.Empty),
-                        new Claim(JwtClaimTypes.WebSite, viewModel.WebSite ?? string.Empty),
+                        new Claim(JwtClaimTypes.GivenName, namePartitions[0]),
+                        new Claim(JwtClaimTypes.FamilyName, namePartitions[1]),
+                        new Claim(JwtClaimTypes.Email, viewModel.Email ?? string.Empty)
                     }).Result;
+
                 if (!result.Succeeded)
                 {
                     throw new Exception(result.Errors.First().Description);
                 }
+
                 return RedirectToAction("login", "account", new { returnUrl = viewModel.ReturnUrl });
             }
             else

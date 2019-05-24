@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Igloo.IdentityServer.Validation;
+using System.ComponentModel.DataAnnotations;
 
 namespace IdentityServer4.Quickstart.UI
 {
@@ -23,14 +24,12 @@ namespace IdentityServer4.Quickstart.UI
         [DataType(DataType.Password), Compare(nameof(Password))]
         public string ConfirmPassword { get; set; }
 
-        [Required, MaxLength(256)]
+        [Required, MaxLength(256), NameSurname]
         public string UserName { get; set; }
 
         [Required, EmailAddress]
         public string Email { get; set; }
 
-        [MaxLength(256)]
-        public string WebSite { get; set; }
 
         public string ReturnUrl { get; set; }
     }

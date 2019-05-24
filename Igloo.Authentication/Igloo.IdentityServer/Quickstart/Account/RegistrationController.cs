@@ -27,6 +27,11 @@ namespace IdentityServer4.Quickstart.UI
         [Route("register")]
         public IActionResult Register(RegistrationViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Views/Account/Registration.cshtml", viewModel);
+            }
+
             var user = userManager.FindByNameAsync(viewModel.Name).Result;
             if (user == null)
             {

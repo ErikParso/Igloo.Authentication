@@ -9,10 +9,15 @@ namespace IdentityServer4.Quickstart.UI
     public class LoginInputModel
     {
         [Required]
-        public string Username { get; set; }
+        [Display(Name = "Login")]
+        public string Login { get; set; }
+
         [Required]
+        [Display(Name = "Password")]
         public string Password { get; set; }
+
         public bool RememberLogin { get; set; }
+
         public string ReturnUrl { get; set; }
     }
 }

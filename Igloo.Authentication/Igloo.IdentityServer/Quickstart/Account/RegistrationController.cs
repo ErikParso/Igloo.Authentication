@@ -26,47 +26,63 @@ namespace IdentityServer4.Quickstart.UI
 
         [HttpPost]
         [Route("register")]
-        public async Task<IActionResult> Register(RegistrationViewModel viewModel)
+        public IActionResult Register(RegistrationViewModel viewModel)
         {
             if (!ModelState.IsValid)
             {
                 return View("Views/Account/Registration.cshtml", viewModel);
             }
 
-            var user = userManager.FindByNameAsync(viewModel.Name).Result;
-            if (user == null)
+            var user = userManager.FindByNameAsync(viewModel.Login).Result;
+            if (user != null)
             {
-                user = new ApplicationUser
-                {
-                    UserName = viewModel.Name
-                };
-
-                var result = userManager.CreateAsync(user, viewModel.Password).Result;
-                if (!result.Succeeded)
-                {
-                    throw new Exception(result.Errors.First().Description);
-                }
-
-                var namePartitions = viewModel.UserName.Split(' ', 2, StringSplitOptions.RemoveEmptyEntries);
-
-                result = userManager.AddClaimsAsync(user, new Claim[]{
-                        new Claim(JwtClaimTypes.Name, viewModel.UserName),
-                        new Claim(JwtClaimTypes.GivenName, namePartitions[0]),
-                        new Claim(JwtClaimTypes.FamilyName, namePartitions[1]),
-                        new Claim(JwtClaimTypes.Email, viewModel.Email ?? string.Empty)
-                    }).Result;
-
-                if (!result.Succeeded)
-                {
-                    throw new Exception(result.Errors.First().Description);
-                }
-
-                return RedirectToAction("login", "account", new { returnUrl = viewModel.ReturnUrl });
+                ModelState.AddModelError(nameof(viewModel.Login), "User with same name already exists.");
+                return View("Views/Account/Registration.cshtml", viewModel);
             }
-            else
+
+            user = new ApplicationUser { UserName = viewModel.Login };
+
+            var result = userManager.CreateAsync(user, viewModel.Password).Result;
+            if (!result.Succeeded)
             {
-                return Conflict("User already exists.");
+                foreach (var error in result.Errors)
+                    ModelState.AddModelError(error.Code, error.Description);
+                return View("Views/Account/Registration.cshtml", viewModel);
             }
+
+            var namePartitions = viewModel.UserName.Split(' ', 2, StringSplitOptions.RemoveEmptyEntries);
+
+            result = userManager.AddClaimsAsync(user, new Claim[]{
+                    new Claim(JwtClaimTypes.Name, viewModel.UserName),
+                    new Claim(JwtClaimTypes.GivenName, namePartitions[0]),
+                    new Claim(JwtClaimTypes.FamilyName, namePartitions[1]),
+                    new Claim(JwtClaimTypes.Email, viewModel.Email ?? string.Empty)
+                }).Result;
+
+            if (!result.Succeeded)
+            {
+                throw new Exception(result.Errors.First().Description);
+            }
+
+            return RedirectToAction("login", "account", new { returnUrl = viewModel.ReturnUrl });
+        }
+
+        private async Task<bool> ValidatePassword(string password, ApplicationUser user)
+        {
+            var result = true;
+            foreach (var validator in userManager.PasswordValidators)
+            {
+                var validation = await validator.ValidateAsync(userManager, user, password);
+                if (!validation.Succeeded)
+                {
+                    result = false;
+                    foreach (var error in validation.Errors)
+                    {
+                        ModelState.AddModelError(nameof(RegistrationViewModel.Password), error.Description);
+                    }
+                }
+            }
+            return result;
         }
 
         [HttpPost]

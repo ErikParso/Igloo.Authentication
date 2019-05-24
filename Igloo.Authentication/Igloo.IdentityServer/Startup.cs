@@ -35,7 +35,7 @@ namespace Igloo.IdentityServer
 
             services.AddTransient<IPersistedGrantStore, PersistedGrantStore>();
 
-            services.AddIdentity<ApplicationUser, IdentityRole>(PasswordSettings.SetPasswordOptions)
+            services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 

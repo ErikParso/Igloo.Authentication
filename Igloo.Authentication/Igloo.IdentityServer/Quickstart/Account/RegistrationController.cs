@@ -1,13 +1,12 @@
 ﻿using IdentityModel;
 using Igloo.IdentityServer.Models;
-using Igloo.IdentityServer.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
 using System.Security.Claims;
 
-namespace Igloo.IdentityServer.Controllers.Account
+namespace IdentityServer4.Quickstart.UI
 {
     [Route("api/account/[Controller]")]
     public class RegistrationController : Controller
@@ -22,11 +21,11 @@ namespace Igloo.IdentityServer.Controllers.Account
         [HttpGet]
         [Route("register")]
         public ViewResult Register([FromQuery]string returnUrl)
-            => View("Views/Account/Registration.cshtml", new UserRegistrationViewModel(returnUrl));
+            => View("Views/Account/Registration.cshtml", new RegistrationViewModel(returnUrl));
 
         [HttpPost]
         [Route("register")]
-        public IActionResult Register(UserRegistrationViewModel viewModel)
+        public IActionResult Register(RegistrationViewModel viewModel)
         {
             var user = userManager.FindByNameAsync(viewModel.Name).Result;
             if (user == null)
@@ -62,7 +61,7 @@ namespace Igloo.IdentityServer.Controllers.Account
 
         [HttpPost]
         [Route("cancel")]
-        public IActionResult Cancel(UserRegistrationViewModel viewModel)
+        public IActionResult Cancel(RegistrationViewModel viewModel)
             => RedirectToAction("login", "account", new { returnUrl = viewModel.ReturnUrl });
     }
 }

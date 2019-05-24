@@ -1,15 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Igloo.IdentityServer.ViewModels
+namespace IdentityServer4.Quickstart.UI
 {
-    public class UserRegistrationViewModel
+    public class RegistrationViewModel
     {
-        public UserRegistrationViewModel(string returnUrl)
+        public RegistrationViewModel(string returnUrl)
         {
             ReturnUrl = returnUrl;
         }
 
-        public UserRegistrationViewModel()
+        public RegistrationViewModel()
         {
 
         }
